@@ -1,2 +1,2 @@
-# Delocha-Ketema
+# Dalocha-Ketema
 The peace land.

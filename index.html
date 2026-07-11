@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ዳሎቻ ወረዳ | Dalocha woreda</title>
     <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for the search and envelope icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body
- <header class="navbar">
+<body>
+
+    <header class="navbar">
         <div class="nav-container">
             <h1 class="logo">ዳሎቻ ወረዳ</h1>
             <div class="nav-controls">
@@ -23,48 +26,43 @@
     </header>
 
     <main class="content-wrapper">
-        <!-- ... your header code ends here ... -->
-</header>
+        <!-- Side Navigation Menu -->
+        <nav class="side-menu">
+            <ul>
+                <li><a href="#plan">ፕላን</a></li>
+                <li><a href="#message">መልዕክት</a></li>
+                <li><a href="#history">ታሪክ</a></li>
+                <li><a href="#geography">ጂኦግራፊ</a></li>
+                <li><a href="#population">ህዝብ</a></li>
+                <li><a href="#nature">ተፈጥሮ</a></li>
+                <li><a href="#social">ማህበራዊ</a></li>
+                <li><a href="#agriculture">ግብርና</a></li>
+                <li><a href="#infrastructure">መሰረተ-ልማት</a></li>
+                <li><a href="#micro">ጥቃቅን</a></li>
+                <li><a href="#finance">ፋይናንስ</a></li>
+                <li><a href="#cooperative">ህብረት</a></li>
+                <li><a href="#land">መሬት</a></li>
+                <li><a href="#investment">ኢንቨስትመንት</a></li>
+                <li><a href="#business">ነጋዴ</a></li>
+                <li><a href="#application">Aplication</a></li>
+            </ul>
+        </nav>
 
-<main class="content-wrapper">
-
-    <!-- INSERT THIS NAVIGATION MENU HERE -->
-    <nav class="side-menu">
-        <ul>
-            <li><a href="#plan">ፕላን</a></li>
-            <li><a href="#message">መልዕክት</a></li>
-            <li><a href="#history">ታሪክ</a></li>
-            <li><a href="#geography">ጂኦግራፊ</a></li>
-            <li><a href="#population">ህዝብ</a></li>
-            <li><a href="#nature">ተፈጥሮ</a></li>
-            <li><a href="#social">ማህበራዊ</a></li>
-            <li><a href="#agriculture">ግብርና</a></li>
-            <li><a href="#infrastructure">መሰረተ-ልማት</a></li>
-            <li><a href="#micro">ጥቃቅን</a></li>
-            <li><a href="#finance">ፋይናንስ</a></li>
-            <li><a href="#cooperative">ህብረት</a></li>
-            <li><a href="#land">መሬት</a></li>
-            <li><a href="#investment">ኢንቨስትመንት</a></li>
-            <li><a href="#business">ነጋዴ</a></li>
-            <li><a href="#application">Aplication</a></li>
-    </nav>
-
-    <!-- Your existing slider section continues below -->
-    <section class="slider-section">
+        <!-- Image Slider Section -->
         <section class="slider-section">
             <div class="slider-container">
                 
                 <div class="slide active">
                     <img src="9.jpg" alt="Dalocha City Night View 1">
                     <div class="slider-caption">
-                        <p>የዳሎቻ ከተማ የህዝቧ ውበት።| The beautiful night view of Dalocha City.</p>
+                        <p>የዳሎቻ ከተማ የህዝቧ ውበት። | The beautiful night view of Dalocha City.</p>
                     </div>
                 </div>
 
                 <div class="slide">
                     <img src="5.jpg" alt="Dalocha City Night View 2">
                     <div class="slider-caption">
-                        <p>ደማቅ እና ማራኪ ድባብ። ቃልን በተግባር| Vibrant and attractive atmosphere.</p>
+                        <p>ደማቅ እና ማራኪ ድባብ። ቃልን በተግባር | Vibrant and attractive atmosphere.</p>
                     </div>
                 </div>
 
@@ -79,10 +77,27 @@
                 <button class="slider-btn next-btn" onclick="changeSlide(1)">&#10095;</button>
             </div>
         </section>
+
+        <!-- Search and Filter Controls Section -->
+        <section class="controls-section">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" placeholder="ፈልግ... Search...">
+            </div>
+            <div class="filter-box">
+                <span>ሁሉም ክፍሎች</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+        </section>
     </main>
 
+    <!-- Floating Action Button -->
+    <div class="fab-btn">
+        <i class="fa-regular fa-envelope"></i>
+    </div>
+
+    <!-- Image Slider Logic -->
     <script>
-        // Simple JavaScript to make the slider buttons work
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
 
@@ -97,13 +112,4 @@
         }
     </script>
 </body>
-                        </html>            <div class="search-box">
-                <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                <input type="text" placeholder="ፈልግ... Search...">
-            </div>
-            <div class="filter-box"><span>ሁሉም ክፍሎች</span><i class="fa-solid fa-chevron-down"></i></div>
-        </section>
-    </main>
-    <div class="fab-btn"><i class="fa-regular fa-envelope"></i></div>
-</body>
-      </html>
+</html>

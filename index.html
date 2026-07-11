@@ -5,31 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ዳሎቻ ወረዳ | Dalocha woreda</title>
     <link rel="stylesheet" href="style.css">
-    <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Add or merge these specific rules into your style.css file */
-        
-        /* 1. Hide the menu by default on mobile devices */
-        .side-menu {
-            display: none; 
-            width: 100%;
-            background-color: #0b223a; /* Match your deep blue color */
-            position: absolute;
-            top: 60px; /* Adjust based on your header height */
-            left: 0;
-            z-index: 1000;
-        }
-
-        /* 2. Show the menu when the 'active' class is added via JavaScript */
-        .side-menu.active {
-            display: block;
-        }
-
-        /* Ensure smooth stacking for the content wrapper */
+        /* New styling to clean up the layout with the menu at the bottom */
         .content-wrapper {
-            position: relative;
+            padding: 10px;
+        }
+
+        /* Styling the menu as a clean grid section at the bottom */
+        .bottom-menu {
+            margin-top: 30px;
+            background-color: #0b223a;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .bottom-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Splits links into 2 clean columns */
+            gap: 10px;
+        }
+
+        .bottom-menu ul li a {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .bottom-menu ul li a:active {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .controls-section {
+            margin: 15px 0;
         }
     </style>
 </head>
@@ -45,36 +62,25 @@
                         <option value="en">English</option>
                     </select>
                 </div>
-                <!-- Added an id to make targeting this button easier in JS -->
-                <button class="menu-toggle" id="menuToggleBtn">☰</button>
             </div>
         </div>
     </header>
 
     <main class="content-wrapper">
-        <!-- Side Navigation Menu (Hidden by default now) -->
-        <nav class="side-menu" id="sideMenu">
-            <ul>
-                <li><a href="#plan">ፕላን</a></li>
-                <li><a href="#message">መልዕክት</a></li>
-                <li><a href="#history">ታሪክ</a></li>
-                <li><a href="#geography">ጂኦግራፊ</a></li>
-                <li><a href="#population">ህዝብ</a></li>
-                <li><a href="#nature">ተፈጥሮ</a></li>
-                <li><a href="#social">ማህበራዊ</a></li>
-                <li><a href="#agriculture">ግብርና</a></li>
-                <li><a href="#infrastructure">መሰረተ-ልማት</a></li>
-                <li><a href="#micro">ጥቃቅን</a></li>
-                <li><a href="#finance">ፋይናንስ</a></li>
-                <li><a href="#cooperative">ህብረት</a></li>
-                <li><a href="#land">መሬት</a></li>
-                <li><a href="#investment">ኢንቨስትመንት</a></li>
-                <li><a href="#business">ነጋዴ</a></li>
-                <li><a href="#application">Aplication</a></li>
-            </ul>
-        </nav>
+        
+        <!-- 1. Search and Filter Controls at the top of content -->
+        <section class="controls-section">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" placeholder="ፈልግ... Search...">
+            </div>
+            <div class="filter-box">
+                <span>ሁሉም ክፍሎች</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+        </section>
 
-        <!-- Image Slider Section -->
+        <!-- 2. Image Slider Section stays prominent -->
         <section class="slider-section">
             <div class="slider-container">
                 <div class="slide active">
@@ -100,44 +106,35 @@
             </div>
         </section>
 
-        <!-- Search and Filter Controls Section -->
-        <section class="controls-section">
-            <div class="search-box">
-                <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                <input type="text" placeholder="ፈልግ... Search...">
-            </div>
-            <div class="filter-box">
-                <span>ሁሉም ክፍሎች</span>
-                <i class="fa-solid fa-chevron-down"></i>
-            </div>
-        </section>
+        <!-- 3. Navigation Menu relocated safely here to the bottom -->
+        <nav class="bottom-menu">
+            <ul>
+                <li><a href="#plan">ፕላን</a></li>
+                <li><a href="#message">መልዕክት</a></li>
+                <li><a href="#history">ታሪክ</a></li>
+                <li><a href="#geography">ጂኦግራፊ</a></li>
+                <li><a href="#population">ህዝብ</a></li>
+                <li><a href="#nature">ተፈጥሮ</a></li>
+                <li><a href="#social">ማህበራዊ</a></li>
+                <li><a href="#agriculture">ግብርና</a></li>
+                <li><a href="#infrastructure">መሰረተ-ልማት</a></li>
+                <li><a href="#micro">ጥቃቅን</a></li>
+                <li><a href="#finance">ፋይናንስ</a></li>
+                <li><a href="#cooperative">ህብረት</a></li>
+                <li><a href="#land">መሬት</a></li>
+                <li><a href="#investment">ኢንቨስትመንት</a></li>
+                <li><a href="#business">ነጋዴ</a></li>
+                <li><a href="#application">Aplication</a></li>
+            </ul>
+        </nav>
     </main>
 
     <div class="fab-btn">
         <i class="fa-regular fa-envelope"></i>
     </div>
 
-    <!-- JavaScript Logic -->
     <script>
-        // --- 1. Mobile Menu Toggle Logic ---
-        const menuToggleBtn = document.getElementById('menuToggleBtn');
-        const sideMenu = document.getElementById('sideMenu');
-
-        menuToggleBtn.addEventListener('click', function() {
-            // Toggles the 'active' class on and off whenever clicked
-            sideMenu.classList.toggle('active');
-        });
-
-        // Optional: Close menu when clicking on any menu link
-        const menuLinks = sideMenu.querySelectorAll('a');
-        menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                sideMenu.classList.remove('active');
-            });
-        });
-
-
-        // --- 2. Image Slider Logic ---
+        // Image Slider Logic
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
 
@@ -152,4 +149,4 @@
         }
     </script>
 </body>
-    </html>
+                        </html>

@@ -1,2 +1,2 @@
-# Dalocha-Ketema
+# Dalocha-Woreda
 The peace land.

@@ -5,8 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ዳሎቻ ወረዳ | Dalocha woreda</title>
     <link rel="stylesheet" href="style.css">
-    <!-- FontAwesome for the search and envelope icons -->
+    <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Add or merge these specific rules into your style.css file */
+        
+        /* 1. Hide the menu by default on mobile devices */
+        .side-menu {
+            display: none; 
+            width: 100%;
+            background-color: #0b223a; /* Match your deep blue color */
+            position: absolute;
+            top: 60px; /* Adjust based on your header height */
+            left: 0;
+            z-index: 1000;
+        }
+
+        /* 2. Show the menu when the 'active' class is added via JavaScript */
+        .side-menu.active {
+            display: block;
+        }
+
+        /* Ensure smooth stacking for the content wrapper */
+        .content-wrapper {
+            position: relative;
+        }
+    </style>
 </head>
 <body>
 
@@ -20,14 +45,15 @@
                         <option value="en">English</option>
                     </select>
                 </div>
-                <button class="menu-toggle">☰</button>
+                <!-- Added an id to make targeting this button easier in JS -->
+                <button class="menu-toggle" id="menuToggleBtn">☰</button>
             </div>
         </div>
     </header>
 
     <main class="content-wrapper">
-        <!-- Side Navigation Menu -->
-        <nav class="side-menu">
+        <!-- Side Navigation Menu (Hidden by default now) -->
+        <nav class="side-menu" id="sideMenu">
             <ul>
                 <li><a href="#plan">ፕላን</a></li>
                 <li><a href="#message">መልዕክት</a></li>
@@ -51,28 +77,24 @@
         <!-- Image Slider Section -->
         <section class="slider-section">
             <div class="slider-container">
-                
                 <div class="slide active">
                     <img src="9.jpg" alt="Dalocha City Night View 1">
                     <div class="slider-caption">
                         <p>የዳሎቻ ከተማ የህዝቧ ውበት። | The beautiful night view of Dalocha City.</p>
                     </div>
                 </div>
-
                 <div class="slide">
                     <img src="5.jpg" alt="Dalocha City Night View 2">
                     <div class="slider-caption">
                         <p>ደማቅ እና ማራኪ ድባብ። ቃልን በተግባር | Vibrant and attractive atmosphere.</p>
                     </div>
                 </div>
-
                 <div class="slide">
                     <img src="7.jpg" alt="Dalocha City Night View 3">
                     <div class="slider-caption">
                         <p>ውብ ጅማሮ እንኳን ወደ ውቧ ከተማችን በደህና መጡ! | Welcome to our beautiful city!</p>
                     </div>
                 </div>
-
                 <button class="slider-btn prev-btn" onclick="changeSlide(-1)">&#10094;</button>
                 <button class="slider-btn next-btn" onclick="changeSlide(1)">&#10095;</button>
             </div>
@@ -91,13 +113,31 @@
         </section>
     </main>
 
-    <!-- Floating Action Button -->
     <div class="fab-btn">
         <i class="fa-regular fa-envelope"></i>
     </div>
 
-    <!-- Image Slider Logic -->
+    <!-- JavaScript Logic -->
     <script>
+        // --- 1. Mobile Menu Toggle Logic ---
+        const menuToggleBtn = document.getElementById('menuToggleBtn');
+        const sideMenu = document.getElementById('sideMenu');
+
+        menuToggleBtn.addEventListener('click', function() {
+            // Toggles the 'active' class on and off whenever clicked
+            sideMenu.classList.toggle('active');
+        });
+
+        // Optional: Close menu when clicking on any menu link
+        const menuLinks = sideMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                sideMenu.classList.remove('active');
+            });
+        });
+
+
+        // --- 2. Image Slider Logic ---
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
 
@@ -112,4 +152,4 @@
         }
     </script>
 </body>
-</html>
+    </html>

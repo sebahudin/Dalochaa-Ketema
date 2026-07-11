@@ -5,96 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ዳሎቻ ወረዳ | Dalocha woreda</title>
     <link rel="stylesheet" href="style.css">
-    <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        /* Base page layout adjustments */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f6f9;
-        }
-
-        .content-wrapper {
-            padding: 15px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Styling the menu as a clean grid section */
-        .bottom-menu {
-            margin-top: 30px;
-            background-color: #0b223a;
-            padding: 15px;
-            border-radius: 8px;
-        }
-
-        .bottom-menu ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Splits links into 2 columns */
-            gap: 10px;
-        }
-
-        .bottom-menu ul li a {
-            display: block;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 12px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 4px;
-            text-align: center;
-            font-size: 14px;
-        }
-
-        .bottom-menu ul li a:active {
-            background-color: rgba(255, 255, 255, 0.15);
-        }
-
-        .controls-section {
-            margin: 15px 0;
-        }
-
-        /* Content Sections Styling */
-        .info-sections {
-            margin-top: 40px;
-        }
-
-        .content-section {
-            background-color: #ffffff;
-            color: #333333;
-            padding: 20px;
-            margin-bottom: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            /* Smooth anchor scrolling offset so the header doesn't cover text */
-            scroll-margin-top: 80px; 
-        }
-
-        .content-section h2 {
-            color: #0b223a; 
-            margin-top: 0;
-            font-size: 20px;
-        }
-
-        .content-section hr {
-            border: 0;
-            height: 2px;
-            background-color: #0b223a;
-            margin-bottom: 15px;
-            opacity: 0.2;
-        }
-
-        .section-body p {
-            line-height: 1.6;
-            margin-bottom: 12px;
-            font-size: 15px;
-        }
-    </style>
 </head>
 <body>
 
@@ -108,25 +19,34 @@
                         <option value="en">English</option>
                     </select>
                 </div>
+                <button class="menu-toggle" id="menuToggleBtn">☰</button>
             </div>
         </div>
     </header>
 
-    <main class="content-wrapper">
-        
-        <!-- 1. Search and Filter Controls -->
-        <section class="controls-section">
-            <div class="search-box">
-                <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                <input type="text" placeholder="ፈልግ... Search...">
-            </div>
-            <div class="filter-box">
-                <span>ሁሉም ክፍሎች</span>
-                <i class="fa-solid fa-chevron-down"></i>
-            </div>
-        </section>
+    <nav class="side-menu" id="sideMenu">
+        <ul>
+            <li><a href="#plan">ፕላን</a></li>
+            <li><a href="#message">መልዕክት</a></li>
+            <li><a href="#history">ታሪክ</a></li>
+            <li><a href="#geography">ጂኦግራፊ</a></li>
+            <li><a href="#population">ህዝብ</a></li>
+            <li><a href="#nature">ተፈጥሮ</a></li>
+            <li><a href="#social">ማህበራዊ</a></li>
+            <li><a href="#agriculture">ግብርና</a></li>
+            <li><a href="#infrastructure">መሰረተ-ልማት</a></li>
+            <li><a href="#micro">ጥቃቅን</a></li>
+            <li><a href="#finance">ፋይናንስ</a></li>
+            <li><a href="#cooperative">ህብረት</a></li>
+            <li><a href="#land">መሬት</a></li>
+            <li><a href="#investment">ኢንቨስትመንት</a></li>
+            <li><a href="#business">ነጋዴ</a></li>
+            <li><a href="#application">Aplication</a></li>
+        </ul>
+    </nav>
 
-        <!-- 2. Image Slider Section -->
+    <main class="content-wrapper">
+
         <section class="slider-section">
             <div class="slider-container">
                 <div class="slide active">
@@ -152,73 +72,70 @@
             </div>
         </section>
 
-        <!-- 3. Navigation Menu Grid -->
-        <nav class="bottom-menu">
-            <ul>
-                <li><a href="#plan">ፕላን</a></li>
-                <li><a href="#message">መልዕክት</a></li>
-                <li><a href="#history">ታሪክ</a></li>
-                <li><a href="#geography">ጂኦግራፊ</a></li>
-                <li><a href="#population">ህዝብ</a></li>
-                <li><a href="#nature">ተፈጥሮ</a></li>
-                <li><a href="#social">ማህበራዊ</a></li>
-                <li><a href="#agriculture">ግብርና</a></li>
-                <li><a href="#infrastructure">መሰረተ-ልማት</a></li>
-                <li><a href="#micro">ጥቃቅን</a></li>
-                <li><a href="#finance">ፋይናንስ</a></li>
-                <li><a href="#cooperative">ህብረት</a></li>
-                <li><a href="#land">መሬት</a></li>
-                <li><a href="#investment">ኢንቨስትመንት</a></li>
-                <li><a href="#business">ነጋዴ</a></li>
-                <li><a href="#application">Aplication</a></li>
-            </ul>
-        </nav>
+        <div class="intro-card">
+            <h2>Socio-Economic and Geo-spatial Data</h2>
+            <p>ማህበራዊ-ኢኮኖሚያዊ መረጃ</p>
+        </div>
 
-        <!-- 4. Written Content Sections -->
+        <section class="controls-section">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" placeholder="ፈልግ... Search...">
+            </div>
+            <div class="filter-box">
+                <span>ሁሉም ክፍሎች</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+        </section>
+
         <section class="info-sections">
-
-            <!-- MESSAGE SECTION -->
             <article id="message" class="content-section">
                 <h2>የመሪው መልዕክት | Message</h2>
                 <hr>
                 <div class="section-body">
                     <p>እንኳን ወደ ዳሎቻ ወረዳ ይፋዊ ድረ-ገጽ በደህና መጡ። ይህ መድረክ የወረዳችንን ልማት፣ ማህበራዊ አገልግሎቶች እና የወደፊት እቅዶች ለህዝባችን ተደራሽ ለማድረግ የተዘጋጀ ነው።</p>
-                    <p>Welcome to the official portal of Dalocha Woreda. This platform is dedicated to making our district's development, social services, and future plans accessible to everyone.</p>
                 </div>
             </article>
 
-            <!-- PLAN SECTION -->
             <article id="plan" class="content-section">
                 <h2>ፕላን | Our Plan</h2>
                 <hr>
                 <div class="section-body">
                     <p>የምግብ ዋስትናን ማረጋገጥ፣ የመሰረተ-ልማት ግንባታዎችን ማፋጠን እና የጥቃቅንና አነስተኛ ኢንተርፕራይዞችን ማበረታታት የወቅቱ ዋና እቅዶቻችን ናቸው።</p>
-                    <p>Ensuring food security, accelerating infrastructure development, and encouraging micro & small enterprises are our current major strategic goals.</p>
                 </div>
             </article>
-
-            <!-- HISTORY SECTION -->
-            <article id="history" class="content-section">
-                <h2>ታሪክ | History</h2>
-                <hr>
-                <div class="section-body">
-                    <p>የዳሎቻ ወረዳ የበለጸገ ባህል እና ታሪካዊ አመጣጥ ያለው ማህበረሰብ የሚኖርበት አካባቢ ነው።</p>
-                    <p>Dalocha Woreda is a region inhabited by a community with a rich cultural heritage and historical background.</p>
-                </div>
-            </article>
-
-            <!-- Add additional sections (geography, population, etc.) here when needed -->
-
         </section>
     </main>
 
-    <!-- Floating Action Button -->
     <div class="fab-btn">
         <i class="fa-regular fa-envelope"></i>
     </div>
 
-    <!-- Image Slider Logic -->
     <script>
+        // Drawer Menu Script Controller
+        const menuToggleBtn = document.getElementById('menuToggleBtn');
+        const sideMenu = document.getElementById('sideMenu');
+
+        menuToggleBtn.addEventListener('click', function(e) {
+            sideMenu.classList.toggle('open');
+            e.stopPropagation();
+        });
+
+        // Close menu panel when clicking a section redirect link
+        document.querySelectorAll('#sideMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                sideMenu.classList.remove('open');
+            });
+        });
+
+        // Close menu panel when clicking outside of it
+        document.addEventListener('click', (e) => {
+            if (!sideMenu.contains(e.target) && e.target !== menuToggleBtn) {
+                sideMenu.classList.remove('open');
+            }
+        });
+
+        // Interactive Slide Controller
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
 
@@ -233,4 +150,4 @@
         }
     </script>
 </body>
-                    </html>
+                        </html>

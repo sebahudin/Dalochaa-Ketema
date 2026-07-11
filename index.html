@@ -5,15 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ዳሎቻ ወረዳ | Dalocha woreda</title>
     <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* New styling to clean up the layout with the menu at the bottom */
-        .content-wrapper {
-            padding: 10px;
+        /* Base page layout adjustments */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f9;
         }
 
-        /* Styling the menu as a clean grid section at the bottom */
+        .content-wrapper {
+            padding: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Styling the menu as a clean grid section */
         .bottom-menu {
             margin-top: 30px;
             background-color: #0b223a;
@@ -26,7 +36,7 @@
             padding: 0;
             margin: 0;
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Splits links into 2 clean columns */
+            grid-template-columns: repeat(2, 1fr); /* Splits links into 2 columns */
             gap: 10px;
         }
 
@@ -48,6 +58,42 @@
         .controls-section {
             margin: 15px 0;
         }
+
+        /* Content Sections Styling */
+        .info-sections {
+            margin-top: 40px;
+        }
+
+        .content-section {
+            background-color: #ffffff;
+            color: #333333;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            /* Smooth anchor scrolling offset so the header doesn't cover text */
+            scroll-margin-top: 80px; 
+        }
+
+        .content-section h2 {
+            color: #0b223a; 
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        .content-section hr {
+            border: 0;
+            height: 2px;
+            background-color: #0b223a;
+            margin-bottom: 15px;
+            opacity: 0.2;
+        }
+
+        .section-body p {
+            line-height: 1.6;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
     </style>
 </head>
 <body>
@@ -68,7 +114,7 @@
 
     <main class="content-wrapper">
         
-        <!-- 1. Search and Filter Controls at the top of content -->
+        <!-- 1. Search and Filter Controls -->
         <section class="controls-section">
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
@@ -80,7 +126,7 @@
             </div>
         </section>
 
-        <!-- 2. Image Slider Section stays prominent -->
+        <!-- 2. Image Slider Section -->
         <section class="slider-section">
             <div class="slider-container">
                 <div class="slide active">
@@ -106,7 +152,7 @@
             </div>
         </section>
 
-        <!-- 3. Navigation Menu relocated safely here to the bottom -->
+        <!-- 3. Navigation Menu Grid -->
         <nav class="bottom-menu">
             <ul>
                 <li><a href="#plan">ፕላን</a></li>
@@ -127,14 +173,52 @@
                 <li><a href="#application">Aplication</a></li>
             </ul>
         </nav>
+
+        <!-- 4. Written Content Sections -->
+        <section class="info-sections">
+
+            <!-- MESSAGE SECTION -->
+            <article id="message" class="content-section">
+                <h2>የመሪው መልዕክት | Message</h2>
+                <hr>
+                <div class="section-body">
+                    <p>እንኳን ወደ ዳሎቻ ወረዳ ይፋዊ ድረ-ገጽ በደህና መጡ። ይህ መድረክ የወረዳችንን ልማት፣ ማህበራዊ አገልግሎቶች እና የወደፊት እቅዶች ለህዝባችን ተደራሽ ለማድረግ የተዘጋጀ ነው።</p>
+                    <p>Welcome to the official portal of Dalocha Woreda. This platform is dedicated to making our district's development, social services, and future plans accessible to everyone.</p>
+                </div>
+            </article>
+
+            <!-- PLAN SECTION -->
+            <article id="plan" class="content-section">
+                <h2>ፕላን | Our Plan</h2>
+                <hr>
+                <div class="section-body">
+                    <p>የምግብ ዋስትናን ማረጋገጥ፣ የመሰረተ-ልማት ግንባታዎችን ማፋጠን እና የጥቃቅንና አነስተኛ ኢንተርፕራይዞችን ማበረታታት የወቅቱ ዋና እቅዶቻችን ናቸው።</p>
+                    <p>Ensuring food security, accelerating infrastructure development, and encouraging micro & small enterprises are our current major strategic goals.</p>
+                </div>
+            </article>
+
+            <!-- HISTORY SECTION -->
+            <article id="history" class="content-section">
+                <h2>ታሪክ | History</h2>
+                <hr>
+                <div class="section-body">
+                    <p>የዳሎቻ ወረዳ የበለጸገ ባህል እና ታሪካዊ አመጣጥ ያለው ማህበረሰብ የሚኖርበት አካባቢ ነው።</p>
+                    <p>Dalocha Woreda is a region inhabited by a community with a rich cultural heritage and historical background.</p>
+                </div>
+            </article>
+
+            <!-- Add additional sections (geography, population, etc.) here when needed -->
+
+        </section>
     </main>
 
+    <!-- Floating Action Button -->
     <div class="fab-btn">
         <i class="fa-regular fa-envelope"></i>
     </div>
 
+    <!-- Image Slider Logic -->
     <script>
-        // Image Slider Logic
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
 
@@ -149,4 +233,4 @@
         }
     </script>
 </body>
-                        </html>
+                    </html>

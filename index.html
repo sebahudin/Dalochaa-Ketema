@@ -5,36 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ዳሎቻ ከተማ | Dalocha City</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
     <header class="navbar">
         <div class="nav-container">
             <h1 class="logo">ዳሎቻ ከተማ</h1>
             <div class="nav-controls">
                 <div class="lang-selector">
-                    <select><option>አማርኛ</option><option>English</option></select>
+                    <select>
+                        <option value="am">አማርኛ</option>
+                        <option value="en">English</option>
+                    </select>
                 </div>
-                <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+                <button class="menu-toggle">☰</button>
             </div>
         </div>
     </header>
+
     <main class="content-wrapper">
         <section class="slider-section">
             <div class="slider-container">
-                <img src="https://images.unsplash.com/photo-1542362567-b07eac79094d?auto=format&fit=crop&w=1200&q=80" alt="Dalocha" class="slider-image">
-                <button class="slider-btn prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
-                <button class="slider-btn next-btn"><i class="fa-solid fa-chevron-right"></i></button>
-                <div class="slider-caption"><p>የዳሎቻ ከተማ ምስል - ገፅ</p></div>
-                <div class="slider-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                
+                <div class="slide active">
+                    <img src="3C0A6579.JPG" alt="Dalocha City Night View 1">
+                    <div class="slider-caption">
+                        <p>የዳሎቻ ከተማ የምሽት ውበት። | The beautiful night view of Dalocha City.</p>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <img src="3C0A6581.JPG" alt="Dalocha City Night View 2">
+                    <div class="slider-caption">
+                        <p>ደማቅ እና ማራኪ ድባብ። | Vibrant and attractive atmosphere.</p>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <img src="3C0A6578.JPG" alt="Dalocha City Night View 3">
+                    <div class="slider-caption">
+                        <p>እንኳን ወደ ውቧ ከተማችን በደህና መጡ! | Welcome to our beautiful city!</p>
+                    </div>
+                </div>
+
+                <button class="slider-btn prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="slider-btn next-btn" onclick="changeSlide(1)">&#10095;</button>
             </div>
         </section>
-        <section class="info-card">
-            <h2>Socio-Economic and Geo-spatial Data</h2>
-            <h3>ማህበራዊ-ኢኮኖሚያዊ መረጃ</h3>
-        </section>
-        <section class="search-section">
-            <div class="search-box">
+    </main>
+
+    <script>
+        // Simple JavaScript to make the slider buttons work
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+    </script>
+</body>
+                        </html>            <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
                 <input type="text" placeholder="ፈልግ... Search...">
             </div>

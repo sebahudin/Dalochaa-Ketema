@@ -1,32 +1,31 @@
 /* ==========================================
-   1. GLOBAL & RESET STYLES (Light Modern Mode)
+   1. GLOBAL SYSTEM RESETS
    ========================================== */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f7fa; /* Light, clean background like Worabe */
+    background-color: #f3f6f9;
     color: #2c3e50;
+    overflow-x: hidden;
 }
 
 .content-wrapper {
     padding: 15px;
-    max-width: 500px; /* Perfect mobile layout constraint */
+    max-width: 480px; /* Aligns content dimensions perfectly inside mobile views */
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
 }
 
 /* ==========================================
-   2. NAVBAR & HEADER
+   2. STICKY NAVBAR HEADER
    ========================================== */
 .navbar {
-    background-color: #0b2f4c; /* Deep blue header */
+    background-color: #0b2f4c;
     color: #ffffff;
-    padding: 12px 15px;
+    padding: 12px 20px;
     position: sticky;
     top: 0;
-    z-index: 2000;
+    z-index: 4000; /* Stays above the sliding menu overlay */
 }
 
 .nav-container {
@@ -50,7 +49,7 @@ body {
 .lang-selector select {
     background: rgba(255, 255, 255, 0.15);
     color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 6px 12px;
     border-radius: 20px;
     outline: none;
@@ -58,32 +57,74 @@ body {
 }
 
 .menu-toggle {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.12);
     border: none;
-    color: white;
-    font-size: 20px;
-    padding: 5px 10px;
-    border-radius: 6px;
+    color: #ffffff;
+    font-size: 22px;
+    padding: 4px 12px;
+    border-radius: 8px;
     cursor: pointer;
 }
 
 /* ==========================================
-   3. WORABE STYLE IMAGE SLIDER (Top Position)
+   3. WORABE DROP-DOWN ACCORDION MENU OVERLAY
+   ========================================== */
+.side-menu {
+    position: fixed;
+    top: -100%; /* Hidden completely above view window boundaries */
+    left: 0;
+    width: 100%;
+    max-height: 80vh;
+    background-color: #0b2f4c;
+    z-index: 3000; /* Sits right underneath the navigation bar layer */
+    overflow-y: auto;
+    transition: top 0.4s cubic-bezier(0.1, 0.9, 0.2, 1); /* Creates an ease-out slide motion downwards */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* Class called into action via Javascript toggle trigger */
+.side-menu.open {
+    top: 55px; /* Slides directly below the header navbar link height boundary */
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.side-menu ul li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.side-menu ul li a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 25px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.side-menu ul li a:active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================
+   4. COMPACT APP IMAGE CAROUSEL SLIDER
    ========================================== */
 .slider-section {
     width: 100%;
-    margin-top: 10px;
-    order: 1; /* Pushes slider to the very top of content */
+    margin-top: 5px;
 }
 
 .slider-container {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 11; /* Gives it that exact clean horizontal rectangular look */
+    aspect-ratio: 16 / 10;
     overflow: hidden;
-    border-radius: 24px; /* Highly rounded corners like Worabe site */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    background-color: #eef2f7;
+    border-radius: 24px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
 }
 
 .slide {
@@ -103,85 +144,79 @@ body {
     object-fit: cover;
 }
 
-/* Rounded translucent slide badge instead of giant dark bar */
 .slider-caption {
     position: absolute;
-    bottom: 20px;
+    bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.7);
     color: #ffffff;
-    padding: 8px 18px;
+    padding: 6px 16px;
     border-radius: 20px;
-    white-space: nowrap;
-    max-width: 85%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    width: 80%;
+    text-align: center;
 }
 
 .slider-caption p {
     margin: 0;
-    font-size: 13px;
-    font-weight: 500;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .slider-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.4);
     color: #ffffff;
     border: none;
     width: 36px;
     height: 36px;
     cursor: pointer;
-    font-size: 14px;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
+    font-size: 14px;
 }
 
-.prev-btn { left: 15px; }
-.next-btn { right: 15px; }
+.prev-btn { left: 12px; }
+.next-btn { right: 12px; }
 
 /* ==========================================
-   4. INTRO PROMINENT CARD VIEW
+   5. WORABE CENTRAL BLUE COMPONENT BANNER
    ========================================== */
 .intro-card {
-    order: 2;
-    background: linear-gradient(185deg, #e3f2fd, #bbdefb); /* Soft light-blue gradient card */
+    background: linear-gradient(180deg, #e3f2fd 0%, #cbe5fe 100%);
     border-radius: 24px;
-    padding: 30px 20px;
+    padding: 35px 20px;
     text-align: center;
     margin: 20px 0;
-    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.08);
+    border: 1px solid rgba(33, 150, 243, 0.15);
 }
 
 .intro-card h2 {
     margin: 0 0 10px 0;
-    color: #0d47a1;
+    color: #0b4582;
     font-size: 24px;
-    font-weight: 800;
+    font-weight: 700;
+    line-height: 1.3;
 }
 
 .intro-card p {
     margin: 0;
-    color: #1565c0;
+    color: #1e62a6;
     font-size: 18px;
     font-weight: 500;
 }
 
 /* ==========================================
-   5. CONTROLS SECTION (Search Bar Below)
+   6. FILTERS & DISCOVERY CONTROL LAYOUTS
    ========================================== */
 .controls-section {
-    order: 3;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .search-box {
@@ -191,14 +226,12 @@ body {
 
 .search-box input {
     width: 100%;
-    padding: 14px 14px 14px 45px;
+    padding: 14px 15px 14px 45px;
     background-color: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 30px; /* Completely round pill shaped input */
+    border: 1px solid #e1e8ed;
+    border-radius: 30px;
     box-sizing: border-box;
     font-size: 15px;
-    color: #334155;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
 }
 
 .search-icon {
@@ -206,8 +239,7 @@ body {
     left: 18px;
     top: 50%;
     transform: translateY(-50%);
-    color: #94a3b8;
-    font-size: 16px;
+    color: #7f8c8d;
 }
 
 .filter-box {
@@ -215,19 +247,55 @@ body {
     justify-content: space-between;
     align-items: center;
     background: #ffffff;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #e1e8ed;
     padding: 14px 20px;
     border-radius: 30px;
     cursor: pointer;
     font-size: 15px;
-    color: #334155;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    color: #2c3e50;
 }
 
 /* ==========================================
-   6. BOTTOM MENU GRID & CONTENT SECTIONS
+   7. RUNNING CONTENT ARTICLES
    ========================================== */
-.bottom-menu {
-    order: 4;
+.content-section {
     background-color: #ffffff;
-    padding
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 24px;
+    border: 1px solid #e1e8ed;
+    scroll-margin-top: 75px;
+}
+
+.content-section h2 {
+    color: #0b2f4c;
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.content-section hr {
+    border: 0;
+    height: 1px;
+    background-color: #e1e8ed;
+    margin-bottom: 15px;
+}
+
+/* ==========================================
+   8. FIXED CONTACT FAB FLOATING BUTTON
+   ========================================== */
+.fab-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #0a2f4d;
+    color: #ffffff;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    box-shadow: 0 4px 15px rgba(10,47,77,0.3);
+    z-index: 5000; /* Stays above everything else at all times */
+   }
